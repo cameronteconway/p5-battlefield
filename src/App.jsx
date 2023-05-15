@@ -75,27 +75,29 @@ createRoot(document.getElementById('root')).render(<App />);
 // let redSoldiers = [];
 // let blueSoldiers = [];
 // let soldierAmount = 15
+// let radius = 5;
 
 // function setup() {
 //   createCanvas(700, 600);
 //   // Red Soldiers
 //   for (let i = 0; i < soldierAmount; i++) {
 //       let x = 0;
-//       let y = i * 10;
-//       let redSoldier = new Soldier(x, y, 5, 'red', 'right');
+//       let y = i * 15 + 5;
+//       let redSoldier = new Soldier(x, y, radius, 'red', 'right');
 //       redSoldiers.push(redSoldier);
 //   }
 
 //   // Blue Soliders
 //   for (let i = 0; i < soldierAmount; i++) {
 //       let x = 700;
-//       let y = i * 10;
-//       let blueSoldier = new Soldier(x, y, 5, 'blue', 'left');
+//       let y = i * 15 + 5;
+//       let blueSoldier = new Soldier(x, y, radius, 'blue', 'left');
 //       blueSoldiers.push(blueSoldier);
 //   }
 // }
 
 // function draw() {
+
 //   // Red Soldiers
 //   for (let i = 0; i < redSoldiers.length; i++) {
 //       redSoldiers[i].move();
@@ -107,28 +109,45 @@ createRoot(document.getElementById('root')).render(<App />);
 //       blueSoldiers[i].move();
 //       blueSoldiers[i].show();
 //   }
+
+//   for (let i = 0; i < soldierAmount; i++) {
+//     // After removal of a soldier, only have its counterpart moving
+//     if()
+//     let d = dist(redSoldiers[i].x, redSoldiers[i].y, blueSoldiers[i].x, blueSoldiers[i].y)
+//     if (d < redSoldiers[i].radius + blueSoldiers[i].radius) {
+//       let randBool = Math.random() < 0.5;
+//       // Update to full colour
+//       randBool ? redSoldiers[i].colour = blue : blueSoldiers[i].colour = red;
+//       // Stop the opposite colour
+//       randBool ? redSoldiers[i].stop() : blueSoldiers[i].stop();
+//     }
+//   }
 // }
 
 // class Soldier {
-//   constructor(x, y, w, colour, direction, xConstraint) {
+//   constructor(x, y, radius, colour, direction, xConstraint) {
 //       this.x = x,
 //       this.y = y,
-//       this.w = w,
+//       this.radius = radius,
 //       this.colour = colour,
 //       this.direction = direction
 //   }
 
+//   stop() {
+//     this.x = this.x;
+//   }
+
 //   move() {
 //       if (this.direction === 'right') {
-//           this.x = this.x + Math.floor(Math.random() * 3);
+//           this.x = this.x + Math.floor(Math.random() * 4);
 //       } else {
-//           this.x = this.x - Math.floor(Math.random() * 3);
+//           this.x = this.x - Math.floor(Math.random() * 4);
 //       }
 //   }
 
 //   show() {
 //       this.colour == 'red' ? stroke(0, 0, 255) : stroke(255, 0, 0);
 //       this.colour == 'red' ? fill(0, 0, 255) : fill(255, 0, 0);
-//       ellipse(this.x, this.y, this.w);
+//       ellipse(this.x, this.y, this.radius * 2);
 //   }
 // }
