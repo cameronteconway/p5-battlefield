@@ -72,59 +72,62 @@ const App = () => {
 
 createRoot(document.getElementById('root')).render(<App />);
 
-// let redSoldiers = [];
-// let blueSoldiers = [];
-// let soldierAmount = 15
+// let team1 = [];
+// let team2 = [];
+// let playersPerTeam = 15
 // let radius = 5;
+// let white = {r:225, g:225, b:225}
+// let grey = {r:128, g:128, b:128}
 
 // function setup() {
 //   createCanvas(700, 600);
-//   // Red Soldiers
-//   for (let i = 0; i < soldierAmount; i++) {
+//   background(0)
+//   // Team 1
+//   for (let i = 0; i < playersPerTeam; i++) {
 //       let x = 0;
 //       let y = i * 15 + 5;
-//       let redSoldier = new Soldier(x, y, radius, 'red', 'right');
-//       redSoldiers.push(redSoldier);
+//       let team1member = new Player(x, y, radius, grey, 'right');
+//       team1.push(team1member);
 //   }
 
-//   // Blue Soliders
-//   for (let i = 0; i < soldierAmount; i++) {
+//   // Team 2
+//   for (let i = 0; i < playersPerTeam; i++) {
 //       let x = 700;
 //       let y = i * 15 + 5;
-//       let blueSoldier = new Soldier(x, y, radius, 'blue', 'left');
-//       blueSoldiers.push(blueSoldier);
+//       let team2member = new Player(x, y, radius, white, 'left');
+//       team2.push(team2member);
 //   }
 // }
 
 // function draw() {
 
-//   // Red Soldiers
-//   for (let i = 0; i < redSoldiers.length; i++) {
-//       redSoldiers[i].move();
-//       redSoldiers[i].show();
+//   // Red Players
+//   for (let i = 0; i < team1.length; i++) {
+//       team1[i].move();
+//       team1[i].show();
 //   }
 
-//   // Blue Soldiers
-//   for (let i = 0; i < blueSoldiers.length; i++) {
-//       blueSoldiers[i].move();
-//       blueSoldiers[i].show();
+//   // Blue Players
+//   for (let i = 0; i < team2.length; i++) {
+//       team2[i].move();
+//       team2[i].show();
 //   }
 
-//   for (let i = 0; i < soldierAmount; i++) {
-//     // After removal of a soldier, only have its counterpart moving
-//     if()
-//     let d = dist(redSoldiers[i].x, redSoldiers[i].y, blueSoldiers[i].x, blueSoldiers[i].y)
-//     if (d < redSoldiers[i].radius + blueSoldiers[i].radius) {
+//   for (let i = 0; i < playersPerTeam; i++) {
+//     let d = dist(team1[i].x, team1[i].y, team2[i].x, team2[i].y)
+//     if (d < team1[i].radius + team2[i].radius) {
 //       let randBool = Math.random() < 0.5;
-//       // Update to full colour
-//       randBool ? redSoldiers[i].colour = blue : blueSoldiers[i].colour = red;
-//       // Stop the opposite colour
-//       randBool ? redSoldiers[i].stop() : blueSoldiers[i].stop();
+//       // randBool ? team1[i].colour = white : team2[i].colour = grey;
+
+//       // If true, team 1 wins, if false, team2 wins
+//        randBool ? team1[i] = new Player(team1[i].x, team1[i].y, team1[i].radius, grey, 'right') : team1[i] = new Player(team1[i].x, team1[i].y, team1[i].radius, white, 'right');
+//       randBool ? team2[i] = new Player(team2[i].x, team2[i].y, team2[i].radius, grey, 'left') : team2[i] = new Player(team2[i].x, team2[i].y, team2[i].radius, white, 'left');
+
 //     }
 //   }
 // }
 
-// class Soldier {
+// class Player {
 //   constructor(x, y, radius, colour, direction, xConstraint) {
 //       this.x = x,
 //       this.y = y,
@@ -133,21 +136,20 @@ createRoot(document.getElementById('root')).render(<App />);
 //       this.direction = direction
 //   }
 
-//   stop() {
-//     this.x = this.x;
-//   }
-
 //   move() {
 //       if (this.direction === 'right') {
 //           this.x = this.x + Math.floor(Math.random() * 4);
-//       } else {
+//       } else if (this.direction === 'left') {
 //           this.x = this.x - Math.floor(Math.random() * 4);
+//       } else {
+//         this.x = this.x;
 //       }
 //   }
 
 //   show() {
-//       this.colour == 'red' ? stroke(0, 0, 255) : stroke(255, 0, 0);
-//       this.colour == 'red' ? fill(0, 0, 255) : fill(255, 0, 0);
+//       // strokeWeight(6);
+//       stroke(this.colour.r, this.colour.g, this.colour.b);
+//       fill(this.colour.r, this.colour.g, this.colour.b);
 //       ellipse(this.x, this.y, this.radius * 2);
 //   }
 // }
